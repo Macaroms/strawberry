@@ -1,0 +1,46 @@
+server:
+  # 端口
+  port: 8091
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: order
+  # 数据源配置
+  datasource:
+    # 使用MySQL5.7，如果是版本8以上，需要修改驱动和url
+    # driver-class-name: com.mysql.jdbc.Driver
+    # url: jdbc:mysql://localhost:3306/demoproject?useUnicode=true&useSSL=false&characterEncoding=utf8
+    # mysql5.7以上的版本
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: L,%o11My<:#W
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8091
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: strawberry #命名空间
+        group: DEFAULT_GROUP   # 分组
+        cluster-name: BJ
+        metadata:
+          version: v3
+
+# Mybatis-plus配置
+mybatis-plus:
+  #配置Mapper映射文件
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  # 配置MyBatis数据返回类型别名（默认别名是类名）
+  type-aliases-package: com.lychee.textserver.pojo
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: true
+
+## Mybatis SQL 打印(方法接口所在的包，不是Mapper.xml所在的包)
+logging:
+  level:
+    com.lychee.textserver.mapper: debug
