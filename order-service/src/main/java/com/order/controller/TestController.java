@@ -23,8 +23,8 @@ public class TestController {
 
     @ApiOperation(value = "测试接口", notes = "测试接口")
     @GetMapping("/orderTest")
-    public ResponseEntity<Result<String>> orderTest(@ApiParam(value = "字符串", required = true) @RequestParam String str) {
-        return ResponseEntity.ok(Result.ok("order-test"));
+    public Result<String> orderTest(@ApiParam(value = "字符串", required = true) @RequestParam String str) {
+        return Result.ok("order-test");
     }
 
 }

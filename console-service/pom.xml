@@ -115,8 +115,8 @@
       <version>${spring.cloud.alibaba.version}</version>
       <exclusions>
         <exclusion>
-          <groupId>com.netflix.ribbon</groupId>
-          <artifactId>ribbon</artifactId>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -130,21 +130,13 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-openfeign</artifactId>
-      <version>3.0.1</version>
+      <version>3.0.6</version>
     </dependency>
-
-
-    <!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-ribbon &ndash;&gt;-->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.cloud</groupId>-->
-<!--      <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-<!--      <version>2.2.10.RELEASE</version>-->
-<!--    </dependency>-->
     <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-loadbalancer -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-      <version>3.0.1</version>
+      <version>3.0.6</version>
     </dependency>
 
 

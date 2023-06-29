@@ -35,7 +35,7 @@ public class TestController {
     @ApiOperation(value = "测试Order接口", notes = "测试Order接口")
     @GetMapping("/str1")
     public ResponseEntity<Result<String>> str1(@ApiParam(value = "字符串", required = true) @RequestParam String str) {
-        return orderServiceFeign.orderTest(str);
+        return ResponseEntity.ok(orderServiceFeign.orderTest(str));
     }
 
 }
