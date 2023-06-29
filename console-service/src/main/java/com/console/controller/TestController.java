@@ -38,4 +38,14 @@ public class TestController {
         return ResponseEntity.ok(orderServiceFeign.orderTest(str));
     }
 
+    @ApiOperation(value = "添加订单", notes = "添加订单")
+    @GetMapping("/addOrder")
+    public ResponseEntity<Result<String>> addOrder(@ApiParam(value = "商品ID", required = true) @RequestParam Long goodId,
+                                                   @ApiParam(value = "描述信息") @RequestParam(required = false) String desc) {
+        System.out.println("添加订单前todo");
+        orderServiceFeign.add(goodId, desc);
+        System.out.println("添加订单后todo");
+        return ResponseEntity.ok(Result.ok("success"));
+    }
+
 }
