@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
@@ -16,6 +17,7 @@ import java.net.UnknownHostException;
 @SpringBootApplication
 @EnableScheduling
 @ComponentScan(value = {"com.console"})
+@EnableFeignClients
 public class ConsoleApplication {
 
     public static void main(String[] args) throws UnknownHostException {

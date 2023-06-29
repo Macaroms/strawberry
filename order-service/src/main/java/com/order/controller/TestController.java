@@ -22,9 +22,9 @@ import java.time.LocalDateTime;
 public class TestController {
 
     @ApiOperation(value = "测试接口", notes = "测试接口")
-    @GetMapping("/str")
-    public ResponseEntity<Result<String>> str(@ApiParam(value = "字符串", required = true) @RequestParam String str) {
-        return ResponseEntity.status(401).body(Result.fail("xxx"));
+    @GetMapping("/orderTest")
+    public ResponseEntity<Result<String>> orderTest(@ApiParam(value = "字符串", required = true) @RequestParam String str) {
+        return ResponseEntity.ok(Result.ok("order-test"));
     }
 
 }
