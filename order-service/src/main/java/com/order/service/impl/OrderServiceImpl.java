@@ -21,4 +21,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     public Page<Order> page(Page<Order> page) {
         return this.page(page, null);
     }
+
+    @Override
+    public boolean add(Long goodId, String desc) {
+        log.info("添加订单");
+        return false;
+    }
 }

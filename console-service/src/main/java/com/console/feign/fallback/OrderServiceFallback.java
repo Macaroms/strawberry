@@ -23,8 +23,4 @@ public class OrderServiceFallback implements OrderServiceFeign {
         log.error("add order failed, goodId:{}, desc: {}", goodId, desc);
         return Result.fail("add order failed");
     }
-
-    public static void main(String[] args) {
-        System.out.println("阿阿阿");
-    }
 }

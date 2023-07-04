@@ -138,6 +138,12 @@
       <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
       <version>${spring.cloud.alibaba.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-seata -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+      <version>${spring.cloud.alibaba.version}</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>

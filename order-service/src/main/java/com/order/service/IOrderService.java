@@ -12,6 +12,8 @@ public interface IOrderService extends IService<Order> {
 
     Page<Order> page(Page<Order> page);
 
+    boolean add(Long goodId, String desc);
+
 
 
 }

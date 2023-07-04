@@ -27,6 +27,9 @@ public class Result<T> implements Serializable {
     @ApiModelProperty(value = "消息")
     private String message;
 
+    @ApiModelProperty(value = "状态码")
+    private Integer code;
+
     @ApiModelProperty(value = "是否成功")
     private Boolean success = true;
 
@@ -37,20 +40,24 @@ public class Result<T> implements Serializable {
     private long timestamp = System.currentTimeMillis();
 
     public Result(ResultCodeEnum resultCodeEnum) {
+        this.code = resultCodeEnum.code();
         this.message = resultCodeEnum.msg();
     }
 
     public Result(ResultCodeEnum resultCodeEnum, T data) {
+        this.code = resultCodeEnum.code();
         this.message = resultCodeEnum.msg();
         this.data = data;
     }
 
-    public Result(String message, boolean success) {
+    public Result(int code, String message, boolean success) {
+        this.code = code;
         this.message = message;
         this.success = success;
     }
 
-    public Result(String message, boolean success, T data) {
+    public Result(int code, String message, boolean success, T data) {
+        this.code = code;
         this.message = message;
         this.success = success;
         this.data = data;
@@ -68,11 +75,15 @@ public class Result<T> implements Serializable {
         return new Result<>(ResultCodeEnum.ERROR);
     }
 
-    public static <T> Result<T> fail(T data) {
-        return new Result<>(ResultCodeEnum.ERROR.msg(), false, data);
+    public static Result<String> fail(Integer code, String message) {
+        return new Result<>(code, message, false);
     }
 
-    public static <T> Result<T> fail(T data, String message) {
-        return new Result<>(message, false, data);
+    public static <T> Result<T> fail(T data) {
+        return new Result<>(ResultCodeEnum.ERROR.code(), ResultCodeEnum.ERROR.msg(), false, data);
+    }
+
+    public static <T> Result<T> fail(Integer code, String message, T data) {
+        return new Result<>(code, message, false, data);
     }
 }

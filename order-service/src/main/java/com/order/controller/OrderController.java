@@ -42,4 +42,15 @@ public class OrderController {
         return Result.ok(orderService.page(new Page<>(pageNum, pageSize)));
     }
 
+    @ApiOperation(value = "生成订单", notes = "生成订单")
+    @GetMapping("/add")
+    Result<String> add(@ApiParam(value = "商品ID", required = true) @RequestParam Long goodId,
+                       @ApiParam(value = "描述信息") @RequestParam(required = false) String desc){
+        if (orderService.add(goodId, desc)) {
+            return Result.ok("success");
+        } else {
+            throw new RuntimeException("添加订单失败");
+        }
+    }
+
 }
